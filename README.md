@@ -61,11 +61,12 @@ And for production:
 #### To run the application as production, use:
     npm start
 
+##### To run as other environments, set the NODE_ENV environment variable as shown in the "Run as Different Environments" section.
+
 ## Unit Tests
 
 #### Test results are formatted as expected, using jestjs
 ###### for testing run
     npm test
 
-##### To run as other environments, set the NODE_ENV environment variable as shown in the "Run as Different Environments" section.
 
