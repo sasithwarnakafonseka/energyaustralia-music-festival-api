@@ -1,11 +1,11 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { FestivalsService } from './festivals.service';
 import { Festival } from './interfaces';
-import { logger } from 'src/logging.config';
 
 @Controller('music_festivals')
 export class FestivalsController {
   private readonly logger = new Logger(FestivalsController.name);
+
   constructor(private readonly festivalsService: FestivalsService) {}
 
   @Get()
@@ -17,9 +17,10 @@ export class FestivalsController {
       const formattedData = this.formatData(festivalsData);
       return formattedData;
     } catch (error) {
-      logger.error('Error', {
+      this.logger.error('Error', {
         additionalInfo: error,
       });
+      return []; // Add this default return value in case of an error to avoid returning undefined
     }
   }
 
@@ -69,9 +70,10 @@ export class FestivalsController {
 
       return formattedData;
     } catch (error) {
-      logger.error('Error', {
+      this.logger.error('Error', {
         additionalInfo: error,
       });
+      return []; // Add this default return value in case of an error to avoid returning undefined
     }
   }
 }
