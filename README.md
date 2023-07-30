@@ -3,6 +3,9 @@
 
 task: entries sorted alphabetically.
 
+##### [API Document with Swagger ](http://localhost:3000/api/document#/default/FestivalsController_getMusicFestivalsData) **** please setup project and run for API documentation ****
+
+
 ## Docker Setup
 ##### Build the Docker image :
         docker build -t music-festival-api .
