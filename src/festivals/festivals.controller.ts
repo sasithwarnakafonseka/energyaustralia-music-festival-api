@@ -1,21 +1,25 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { FestivalsService } from './festivals.service';
 import { Festival } from './interfaces';
+import { firstValueFrom, from, lastValueFrom } from 'rxjs';
 
 @Controller('music_festivals')
 export class FestivalsController {
   private readonly logger = new Logger(FestivalsController.name);
 
   constructor(private readonly festivalsService: FestivalsService) {}
-
   @Get()
   async getMusicFestivalsData(): Promise<any> {
     try {
-      const festivalsData: Festival[] = await this.festivalsService
-        .getFestivalsData()
-        .toPromise();
-      const formattedData = this.formatData(festivalsData);
-      return formattedData;
+      const festivalsData = this.festivalsService.getFestivalsData();
+
+      // Create an Observable from the festivalsData array
+      const festivalsObservable = from(festivalsData);
+
+      // Use the lastValueFrom() operator to get the last festival
+      const lastFestival = await lastValueFrom(festivalsObservable);
+
+      return lastFestival;
     } catch (error) {
       this.logger.error('Error', {
         additionalInfo: error,
