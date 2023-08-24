@@ -72,5 +72,13 @@ And for production:
 #### Test results are formatted as expected, using jestjs
 ###### for testing run
     npm test
+###### Test Cases
+    festivals.controller.spec.ts
+        Test Case 1 : Check controller status
+        Test Case 2 : Check controller getMusicFestivalsData function is returning data
+        Test Case 3 : Check controller getMusicFestivalsData function return data is formatted (sorted alphabetically) or not
+        Test Case 4 : Check controller formatData function , data formatting function (sorted alphabetically) is working properly
 
+    festivals.service.spec.ts
+        Test Case 1 : check service getFestivalsData function is returning data
 

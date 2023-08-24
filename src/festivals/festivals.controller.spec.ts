@@ -75,11 +75,13 @@ describe('FestivalsController', () => {
   });
 
   describe('getMusicFestivalsData', () => {
+    // Test Case : check controller status
     it('should be defined', () => {
       expect(controller).toBeDefined();
     });
 
     it('should return data', async () => {
+      // Test Case : check controller getMusicFestivalsData function is returning data
       // Call the controller's method
       const result = await controller.getMusicFestivalsData();
       const dataFormat = JSON.parse(result);
@@ -88,6 +90,7 @@ describe('FestivalsController', () => {
     });
 
     it('should return formatted data', async () => {
+      // Test Case : check controller getMusicFestivalsData function return data is formatted (sorted alphabetically) or not
       // Call the controller's method and expect the result to match the expected data
       const result = await controller.getMusicFestivalsData();
       const dataFormat = JSON.parse(result);
@@ -104,6 +107,7 @@ describe('FestivalsController', () => {
     });
 
     it('should return formatted data', async () => {
+      // Test Case : check controller formatData function , data formatting function (sorted alphabetically) is working properly
       // Call the controller's method and expect the result to match the expected data
       const testRowData = festivalsService.getFestivalsData();
 

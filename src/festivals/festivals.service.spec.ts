@@ -46,6 +46,7 @@ describe('FestivalsService', () => {
 
   describe('getFestivalsData', () => {
     it('should return festivals data', (done) => {
+      // Test Case : check service getFestivalsData function is returning data
       // Spy on the HttpService get method to ensure it's called
       const httpServiceSpy = jest.spyOn(httpService, 'get');
 
