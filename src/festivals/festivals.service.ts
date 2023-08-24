@@ -13,10 +13,16 @@ export class FestivalsService {
   constructor(private readonly httpService: HttpService) {}
 
   getFestivalsData(): Observable<Festival[]> {
-    return this.httpService.get(this.apiUrl).pipe(
-      map((response: AxiosResponse<any>) => {
-        return response.data;
-      }),
-    );
+    try {
+      return this.httpService.get(this.apiUrl).pipe(
+        map((response: AxiosResponse<any>) => {
+          return response.data;
+        }),
+      );
+    } catch (error) {
+      // Handle the error here, you can log it or return a default response
+      console.error('Error fetching festivals data:', error);
+      throw new Error('Failed to fetch festivals data');
+    }
   }
 }
