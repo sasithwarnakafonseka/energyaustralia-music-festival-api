@@ -89,7 +89,7 @@ describe('FestivalsController', () => {
       expect(dataFormat).toEqual(expectedData);
     });
 
-    it('should return formatted data', async () => {
+    it('should return formatted data with getMusicFestivalsData', async () => {
       // Test Case : check controller getMusicFestivalsData function return data is formatted (sorted alphabetically) or not
       // Call the controller's method and expect the result to match the expected data
       const result = await controller.getMusicFestivalsData();
@@ -106,7 +106,7 @@ describe('FestivalsController', () => {
       expect(dataFormat).toEqual(dataFormatData);
     });
 
-    it('should return formatted data', async () => {
+    it('should return formatted data with formatData', async () => {
       // Test Case : check controller formatData function , data formatting function (sorted alphabetically) is working properly
       // Call the controller's method and expect the result to match the expected data
       const testRowData = festivalsService.getFestivalsData();
