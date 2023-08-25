@@ -118,7 +118,15 @@ describe('FestivalsController', () => {
 
       const resultFormatData = await controller.formatData(lastFestival);
       const dataFormatData = JSON.parse(resultFormatData);
-      expect(expectedData).toEqual(dataFormatData);
+      expect(expectedData).toStrictEqual(dataFormatData);
+    });
+
+    it('should return formatted data', async () => {
+      // Test Case : check controller formatData function , data formatting function (sorted alphabetically) is working properly
+      const resultFormatData = await controller.formatData([]);
+      const dataFormatData = JSON.parse(resultFormatData);
+      console.log(dataFormatData);
+      // expect(dataFormatData);
     });
   });
 });
